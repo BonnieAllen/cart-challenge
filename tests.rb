@@ -1,11 +1,32 @@
 require 'minitest/autorun'
 require 'pry'
 
+
+class Item
+  attr_reader :name, :price
+
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+
+
+end
+
+  class Cart
+
+    def initialize
+    end
+
+    def item
+  
+    end
+  end
+
 class CartTest < MiniTest::Test
 
   def test_items_have_a_name_and_a_price
     widget = Item.new("Premium Widget", 44)
-
     assert_equal widget.name, "Premium Widget"
     assert_equal widget.price, 44
   end
@@ -21,6 +42,7 @@ class CartTest < MiniTest::Test
     cart.add_item(pestle)
     assert_equal cart.item_count, 2
     assert cart.contains?(mortar)
+    binding.pry
   end
 
   def test_carts_know_their_cost
